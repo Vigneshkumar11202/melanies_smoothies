@@ -39,7 +39,7 @@ ingredient_list=st.multiselect(
     max_selections=5
 )
 
-#smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 #st.text(smoothiefroot_response.json())
 sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True )
 
@@ -56,7 +56,7 @@ if ingredient_list:
         #st.write('The search value for ', each_fruit,' is ', search_on, '.')
 
         st.subheader(each_fruit + ' Nutrition Information')
-        fruityvice_response = requests.get("https://my.smoothiefroot.com/api/fruit/{search_on}")
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + each_fruit)
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True )
 
     #st.write(ingredient_string)
